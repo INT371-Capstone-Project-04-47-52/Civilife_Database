@@ -1,0 +1,19 @@
+version: '3'
+services:
+  database:
+    container_name: database_con
+    build: .
+    image: database
+    environment: 
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: cvladmin
+      MYSQL_DATABASE: rLE4UUzq$!=xZ4%v
+    volumes:
+      - "./scriptCVL/CVL.sql:/docker-entrypoint-initdb.d/CVL.sql"
+    ports:
+      - "3306:3306"
+
+networks:
+    default:
+        external:
+            name: network
